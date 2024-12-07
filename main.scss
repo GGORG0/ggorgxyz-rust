@@ -1,0 +1,189 @@
+@use "catppuccin-mocha" as ctp;
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: ctp.$base;
+  color: ctp.$text;
+  font-family:
+    Ubuntu Sans,
+    sans;
+  font-size: 1.25rem;
+
+  width: 100vw;
+  min-height: 100dvh;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+a {
+  color: inherit;
+}
+
+.rectbox {
+  width: 100%;
+  height: 100%;
+
+  position: relative;
+
+  padding: 1.5em;
+}
+
+@media (min-width: 1025px) {
+  .rectbox {
+    padding-top: 4.5em;
+    width: auto;
+    height: auto;
+    margin-top: 4.5em;
+    margin-bottom: 1em;
+
+    border: 0.25em solid ctp.$sapphire;
+    border-radius: 2em;
+
+    background-color: ctp.$surface0;
+  }
+}
+
+.mainbox-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25em;
+  margin-top: 1.5em;
+}
+
+@media (orientation: landscape) {
+  .mainbox-content {
+    margin-top: auto;
+  }
+}
+
+.title {
+  margin: 0;
+
+  font-size: 4.5rem;
+  font-weight: 800;
+  text-align: center;
+
+  background-color: ctp.$surface1;
+  padding: 0.05em 0.2em;
+  border: 0.25rem solid ctp.$blue;
+  border-radius: 2rem;
+
+  color: ctp.$blue;
+  -webkit-text-stroke: 0.05em ctp.$text;
+  text-shadow: 0.075em 0.075em 0.1em ctp.$overlay0;
+}
+
+@media (min-width: 1025px) {
+  .title {
+    position: absolute;
+    left: -2rem;
+    top: -3rem;
+
+    font-size: 5.5rem;
+  }
+}
+
+.wave {
+  animation-name: wave-animation;
+  animation-duration: 2.5s;
+  animation-iteration-count: infinite;
+  transform-origin: 70% 70%;
+  display: inline-block;
+}
+
+@keyframes wave-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  10% {
+    transform: rotate(14deg);
+  }
+
+  20% {
+    transform: rotate(-8deg);
+  }
+
+  30% {
+    transform: rotate(14deg);
+  }
+
+  40% {
+    transform: rotate(-4deg);
+  }
+
+  50% {
+    transform: rotate(10deg);
+  }
+
+  60% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.no-margin {
+  margin: 0;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.dummy {
+  width: 500px;
+  height: 200px;
+  background: red;
+}
+
+.link-bar-text {
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.link-bar {
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: repeat(auto-fit, minmax(3em, 1fr));
+  gap: 0.1em;
+  row-gap: 0.25em;
+  align-items: center;
+}
+
+.link-bar-item {
+  display: block;
+  width: 100%;
+  height: 2.5em;
+  text-align: center;
+}
+
+.link-bar-item.active > img {
+  filter: brightness(150%) drop-shadow(0 0 0.3em ctp.$overlay0);
+  scale: 110%;
+}
+
+.link-bar-item > img {
+  height: 100%;
+  aspect-ratio: 1;
+
+  transition: 250ms;
+}
+
+.repo-link {
+  margin-top: 1em;
+  text-align: center;
+  font-size: 0.9rem;
+}

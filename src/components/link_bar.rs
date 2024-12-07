@@ -63,7 +63,7 @@ pub fn LinkBar(items: &Vec<LinkBarItem>, placeholder: &AttrValue) -> Html {
 
     html! {
         <div class={classes!("link-bar-container")}>
-            <LinkBarText item={(*hovered_item).clone()} />
+            { link_bar_text({&(*hovered_item).clone()}) }
 
             <div class={classes!("link-bar")}>
                 { for items.iter().map(|item| {
@@ -86,9 +86,7 @@ pub fn LinkBar(items: &Vec<LinkBarItem>, placeholder: &AttrValue) -> Html {
     }
 }
 
-#[autoprops]
-#[function_component]
-fn LinkBarText(item: &LinkBarTextEntry) -> Html {
+fn link_bar_text(item: &LinkBarTextEntry) -> Html {
     html! {
         <div class={classes!("link-bar-text")}>
             { match item {

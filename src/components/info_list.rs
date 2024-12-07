@@ -1,5 +1,4 @@
 use yew::prelude::*;
-use yew_autoprops::autoprops;
 
 #[derive(Debug, Clone, PartialEq)]
 pub enum InfoListItem {
@@ -19,9 +18,7 @@ impl From<(&'static str, &'static str, &'static str)> for InfoListItem {
     }
 }
 
-#[autoprops]
-#[function_component]
-pub fn InfoList(items: &Vec<InfoListItem>) -> Html {
+pub fn info_list(items: &Vec<InfoListItem>) -> Html {
     html! {
         <ul class={classes!("no-margin")}>
             { for items.iter().map(|item| match item {

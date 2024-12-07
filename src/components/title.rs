@@ -1,7 +1,6 @@
 use yew::prelude::*;
 
-#[function_component]
-pub fn Title() -> Html {
+pub fn title() -> Html {
     html! {
       <h1 class={classes!("title")}>
         {"GGORG"}

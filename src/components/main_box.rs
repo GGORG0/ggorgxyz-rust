@@ -1,11 +1,10 @@
-use crate::components::{info_list::InfoList, link_bar::LinkBar, rect_box::RectBox, title::Title};
+use crate::components::{info_list::info_list, link_bar::LinkBar, title::title};
 use yew::prelude::*;
 
-#[function_component]
-pub fn MainBox() -> Html {
+pub fn main_box() -> Html {
     html! {
-        <RectBox>
-            <Title />
+        <div class={classes!("container")}>
+            { title() }
             <div class="mainbox-content">
                 <h2 class={classes!("no-margin")}>
                     <span class={classes!("wave")}>{"👋"}</span>
@@ -19,14 +18,14 @@ pub fn MainBox() -> Html {
 
                 <h3 class={classes!("no-margin")}>{"Some more info about me:"}</h3>
 
-                <InfoList items={vec![
+                { info_list(&vec![
                     ("Pronouns", "he/him").into(),
                     ("Location", "Wrocław, Poland").into(),
                     ("Timezone", "Europe/Warsaw", "https://time.is/Wroclaw").into(),
                     ("OS", "NixOS w/Hyprland", "https://github.com/GGORG0/nix-config").into(),
                     ("Hates", "big tech").into(),
                     ("Loves", "privacy & FOSS").into(),
-                ]} />
+                ]) }
 
                 <LinkBar items={vec![
                     ("Keyoxide", "GGORG", "keyoxide.svg", "https://keyoxide.org/openpgp4fpr:7536b3da69fbb954460c7311be009af8c726ef1a").into(),
@@ -57,6 +56,6 @@ pub fn MainBox() -> Html {
                     {"Public on GitHub under GPL-3.0"}
                 </a>
             </div>
-        </RectBox>
+        </div>
     }
 }

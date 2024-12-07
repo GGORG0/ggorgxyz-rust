@@ -2,6 +2,8 @@
 
 This is the code for my website, [ggorg.xyz](https://ggorg.xyz).
 
+Of course, featuring the Catppuccin Mocha theme!
+
 It's my first Yew.rs project ever!
 For those who don't know it's a React-like framework for building websites in Rust.
 
